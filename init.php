@@ -1,8 +1,5 @@
 <?php
 
-
-require 'vendor/autoload.php';
-
 //test
 // define('DB_HOST', 'localhost');
 // define('DB_USER', 'root');
