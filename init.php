@@ -11,9 +11,9 @@ require 'vendor/autoload.php';
 
 //production
 define('DB_HOST', 'localhost');
-define('DB_USER', 'host1870186');
-define('DB_PASS', 'vgkGH7eNxK');
-define('DB_NAME', 'host1870186_test');
+define('DB_USER', '');
+define('DB_PASS', '');
+define('DB_NAME', '');
 
 $mysql = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if ($mysql->connect_errno) exit('Ошибка подключение к БД');
