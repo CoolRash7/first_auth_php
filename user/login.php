@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         //success post
         $result_user = $mysql->query("SELECT * FROM `users` WHERE '$post_login'=`name` AND '$post_pass'=`pass`");
-        $result_email = $mysql->query("SELECT * FROM `users` WHERE '$post_login'=`email` AND '$post_pass'='pass'");
+        $result_email = $mysql->query("SELECT * FROM `users` WHERE '$post_login'=`email` AND '$post_pass'=`pass`");
 
         $exists_user = true;
         if ($result_user->num_rows > 0) {
