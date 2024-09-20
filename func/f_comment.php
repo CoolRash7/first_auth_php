@@ -6,7 +6,24 @@ function printComments($mysql) {
     $result = $mysql->query("SELECT * FROM `comments`");
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+
+            $temp_user = $mysql->query("SELECT * FROM `users` WHERE '$row[name]'=`name`");
+            $first = $temp_user->fetch_assoc();
+            
+            if ($first && strlen($first['img_avatar'])>0) {
+                print <<<_HTML
+                <img src="$first[img_avatar]" alt="avatar_none" width="30px">
+                _HTML;
+
+            } else {
+                print <<<_HTML
+                    <img src="../res/avatar_none.png" alt="avatar_none" width="30px">
+                    _HTML;
+            }
+
+
             print <<<_HTML
+
             <b>$row[name] (написал $row[date])</b>
             <p>$row[comment]</p>
             _HTML;

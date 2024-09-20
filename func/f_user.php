@@ -44,10 +44,20 @@ function printUserData($mysql) {
         $user = $mysql->query("SELECT * FROM `users` WHERE '$name'=`name`");
 
         $first = $user->fetch_assoc();
+        print "imgavavar: ".$first['img_avatar'];
+        if (strlen($first['img_avatar']) <=0) {
+            print <<<_HTML
+                <img src="../res/avatar_none.png" alt="avatar_none" width="30px">
+                _HTML;
+        } else {
+            print <<<_HTML
+                <img src="../php_test/$first[img_avatar]" alt="avatar_none" width="30px">
+                _HTML;
+        }
         print <<<_HTML
         <p>Имя: $first[name]</p></br>
         <p>Почта: $first[email]</p></br>
-        <p>Зарегестрировался: $first[date_create]</p></br>
+        <p>Зарегестрировался: $first[created]</p></br>
         <p>Пароль: $first[pass]</p></br>
         </br>
         <a href='../user/logout.php'>Выйти</a>
@@ -71,6 +81,21 @@ function buttonUser($mysql) {
         <p>Вы еще не вошли. <a href="../user/login.php">Войти</a></p>
         _HTML;
     }
+}
+
+function uploadAvatar() {
+
+    
+}
+
+function formUploadAvatar() {
+    print <<<_HTML
+    <form action="../user/upload_avatar.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="user_avatar"/>
+        <button type="submit">Upload</button>
+    </form>
+
+    _HTML;
 }
 
 ?>

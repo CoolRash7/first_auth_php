@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             formNewUser();
         } else {
             $mysql->query("INSERT INTO `users` (`name`, `email`, `pass`) VALUE ('$post_name', '$post_email', '$post_pass')");
-            session_start();
+            //session_start();
             $_SESSION['name'] = $post_name;
             header("Location: ../");
             exit();

@@ -1,10 +1,11 @@
 <html>
 <body>
 <?php
-session_start();
+// session_start();
 require 'init.php';
 require 'func/f_user.php';
 require 'func/f_comment.php';
+require 'func/f_upload_image.php';
 
 // printComments($mysql);
 
@@ -15,6 +16,11 @@ buttonUser($mysql);
 printComments($mysql);
 
 formComment();
+
+print "<br><br>";
+
+formUploadImage();
+
 
 ?>
 
